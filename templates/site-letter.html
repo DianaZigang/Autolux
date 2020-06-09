@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+			
+	
+	<div style="background: #dbdbdb; ">
+	<form id=form  method="post" style="text-align: center; padding: 60px 0px; width: 700px; margin: 0 auto;">	
+		<p style="font-size: 40px;"><b>Оставьте Вашу заявку</b></p>
+		<p style="font-size: 25px; padding: 30px 0;">Если вам не подошел никакой из наших готовых товаров, вы можете заказать запчасть. Заполните форму и оставьте свои контакты и пожелания.</p>
+		<div style="text-align: left">
+		<div class="form-group">
+            <label>Мобильный телефон</label>
+            <input placeholder="Ваш сотовый" name="telefon" type="tel" class="form-control">
+        </div>
+		<div class="form-group">
+            <label>Имя</label>
+            <input placeholder="Ваше полное имя" name="name" class="form-control">
+        </div>
+		<div class="form-group">
+            <label>Опишите, что именно вам нужно</label>
+			<textarea name="text" class="form-control" style="height: 100px"></textarea>                                    
+        </div>
+		</div>
+		<button class="btn" style="padding: 15px 40px; background: black; color: white;">Отправить</button>
+	</form>
+	</div>
+	
+			
+
+{% endblock %}

@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Магазин автозапчастей AvtoLux</title>
+   	
+	<style>
+      #zatemnenie {
+        background: rgba(102, 102, 102, 0.7);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      #zatemnenie:target {display: block;}
+      #forma {
+        width: 400px;
+        text-align: left;
+        padding: 15px;
+        color: black;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        background: #fff;
+      }
+      #forma:target {display: block;}
+	  
+	  
+      #send{
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      #okno {
+        width: 300px;
+        height: 60px;
+        text-align: center;
+        padding: 20px;
+		background: white;
+        border: 3px solid #0000cc;
+        border-radius: 10px;
+        color: #0000cc;
+        margin: 150px auto;
+      }
+      #send:target {display: block;}
+		  
+		  
+	  .slider {
+		  position: relative;
+		  width: 700px;
+		  height: auto;
+		  margin: 0 auto;
+		  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.75);
+		}
+
+		.slider input[name="switch"] {
+		  display: none;
+		}
+
+		.switch {
+		  position: absolute;
+		  left: 0;
+		  bottom: -40px;
+		  text-align: center;
+		  width: 100%;
+		}
+
+		.switch label {
+		  display: inline-block;
+		  width: 14px;
+		  height: 14px;
+		  cursor: pointer;
+		  margin: 0 3px;
+		  border-radius: 50%;
+		  border: 3px solid #2f363c;
+		  background-color: #738290;
+		}
+
+		#btn1:checked~.switch label[for="btn1"] {
+		  background-color: white;		}
+
+		#btn2:checked~.switch label[for="btn2"] {
+		  background-color: white;		}
+
+		#btn3:checked~.switch label[for="btn3"] {
+		  background-color: white;		}
+
+		#btn4:checked~.switch label[for="btn4"] {
+		  background-color: white;		}
+
+		#btn5:checked~.switch label[for="btn5"] {
+		  background-color: white;		}
+
+		#btn6:checked~.switch label[for="btn6"] {
+		  background-color: white;		}
+
+		#btn7:checked~.switch label[for="btn7"] {
+		  background-color: white;		}
+
+		#btn8:checked~.switch label[for="btn8"] {
+		  background-color: white;		}
+
+		.slider-inner {
+		  overflow: hidden;		  
+		}
+
+		.slides {
+		  display: flex;
+		  width: 100%;
+		  transition: all 0.5s;
+		}
+
+		.slides img {
+		  width: 100%;
+		  flex-shrink:0;
+		}
+
+		#btn1:checked~slider-inner slides {
+		  transform: translate(0);		}
+
+		#btn2:checked~.slider-inner .slides {
+		  transform: translateX(-100%);		}
+
+		#btn3:checked~.slider-inner .slides {
+		  transform: translateX(-200%);		}
+
+		#btn4:checked~.slider-inner .slides {
+		  transform: translateX(-300%);		}
+
+		#btn5:checked~.slider-inner .slides {
+		  transform: translateX(-400%);		}
+
+		#btn6:checked~.slider-inner .slides {
+		  transform: translateX(-500%);		}
+
+		#btn7:checked~.slider-inner .slides {
+		  transform: translateX(-600%);		}
+
+		#btn8:checked~.slider-inner .slides {
+		  transform: translateX(-700%);		}
+    </style>
+</head>
+	<body style="color: black">
+	
+		<nav class="navbar navbar-default" style="display: flex; justify-content: center; margin-bottom: 0px;">
+			<ul class="nav navbar-nav">
+				<li><a href="/about">О салоне</a></li>
+				<li><a href="/shop">Товары</a></li>
+				<li><a href="/letter">Заявки</a></li>
+			</ul>
+		</nav>     
+		
+		
+		{% set fon = "/static/img/fon3.jpg" %}
+		<div style="background: url({{fon}}) center center; padding: 110px 0; min-width: 800px;">
+			<h1 style="text-align: center; font-size: 100px; color: white"><b>Магазин автозапчастей AvtoLux</b></h3>
+		</div>
+		
+		
+		
+		{% block content %}{% endblock %}
+		
+		
+		
+		{% set fon2 = "/static/img/flowers.jpg" %}
+		<div id=contacts style="background: url({{fon2}}) center center; padding: 80px 0; display: flex; justify-content: center;">
+			<div style="background: white; width: 60%; padding: 80px 0px; text-align: center;">		
+				<p style="font-size: 40px;"><b>+1 123 456 78 90</b></p>
+				<h4 style="padding-top: 100px;">г.Стерлитамак</h4>
+				<h4 style="">ул.Шафиева 45 (м-н Подшипникцентр)</h4>
+				<div style="display: flex; justify-content: center; padding-top: 50px">
+					{% set a = "/static/img/facebook.png" %}
+					<a href="https://www.facebook.com/tildapublishing" target="_blank"><img src={{a}} style="width: 70px; height: 70px;"></a>
+					{% set a = "/static/img/instagram.png" %}
+					<a href="https://www.instagram.com/tildapublishing/" target="_blank"><img src={{a}} style="width: 70px; height: 70px;"></a>
+					{% set a = "/static/img/twiter.png" %}
+					<a href="https://telegram.me/tildanews" target="_blank"><img src={{a}} style="width: 70px; height: 70px;"></a>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>

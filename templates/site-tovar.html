@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+	
+	
+	{% if flag == 1 %}
+	<form method="post">
+      <div id="forma">
+        
+        <h3><b>Ваш заказ:</b></h3>
+        
+        <table style="border: 1px solid #5b646e; border-collapse: separate; border-spacing: 4px; color: #000000; width: 100%;">
+		  {% for item in selected%}
+		  <tr>
+			<td style="padding: 10px 15px;">
+				{% set a = "/static/img/"+item.Image %}
+				<img src={{a}} style="width: 60px; height: auto;">
+			</td>
+			<td style="padding: 10px 15px;">{{item.Name}}</td>
+			<td style="padding: 10px 15px;">{{item.Price}}p.</td>
+		  </tr>
+		  {% endfor %}
+		</table>
+        
+		<div class="form-group">
+            <label>Ваше имя</label>
+            <input name="name" class="form-control">
+        </div>      
+        <div class="form-group">
+            <label>Ваш Email</label>
+            <input name="email" class="form-control">
+        </div>      
+        <div class="form-group">
+            <label>Ваш телефон</label>
+            <input name="telefon" class="form-control">
+        </div>
+        
+		<button class="btn" style="padding: 15px 140px; background: black; color: white;">Оформить заказ</button>
+		
+      </div>
+    </div>
+	{% endif %}
+	{% if flag2 == 0 %}	
+		<div class="alert alert-success alert-dismissible fade in" style="margin-top: 5px">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+			<strong>Ваш заказ отправлен!</strong>
+	    </div>
+	{% endif %}
+		
+		
+	<form method="post">	
+		<table style="margin: 30px auto;">
+			<h1 style="margin: 40px;text-align: center;"><b>СПИСОК ТОВАРОВ</b></h4>
+			{% for item in obj%}
+			<tr>
+			  <td style="width: 50%; padding: 40px 40px;">
+				{% set a = "/static/img/"+item.Image %}
+				<img src={{a}} style="width: 600px; height: auto; background: #eaeaed; border: 1px solid #9799a7; padding: 4px;">
+			  </td>
+			  <td style="width: 50%; padding: 20px 20px;">
+				<h4 style="font-size: 30px; line-height: 40px; margin-bottom: 20px;"><b>{{item.Name}}</b></h3>
+				<h4 style=" margin-bottom: 20px;"><b>{{item.Price}} p.</b></h4>		
+				<div class="form-group form-check">
+					<input type="checkbox" class="form-check-input" name="{{ loop.index }}">
+					<label class="form-check-label">Добавить в корзину</label>
+				</div>
+				<button class="btn btn-warning" style="padding: 10px 30px; margin-bottom: 20px;">Заказать выбранные товары</button>
+				<h4 style="width: 400px; line-height: 30px">{{item.Info}}</h4>
+			  </td>
+			</tr>
+			{% endfor %}
+		</table>
+	</form>
+
+{% endblock %}
